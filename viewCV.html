@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View CV - DragINN</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="cv.css">
+    <link rel="stylesheet" href="viewCV.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <!-- ... same sidebar as dashboard.html ... -->
+    </nav>
+
+    <div class="main-content">
+        <div class="cv-viewer">
+            <div class="cv-actions">
+                <button id="downloadCV" class="action-btn">
+                    <i class="fas fa-download"></i> Download PDF
+                </button>
+                <button id="editCV" class="action-btn" onclick="window.location.href='updateCV.html'">
+                    <i class="fas fa-edit"></i> Edit CV
+                </button>
+            </div>
+
+            <div class="cv-document" id="cvDocument">
+                <div class="cv-header">
+                    <div class="profile-section">
+                        <img id="profileImage" src="assets/default-profile.png" alt="Profile Picture" class="profile-picture">
+                        <div class="profile-upload">
+                            <label for="profileUpload" class="upload-btn">
+                                <i class="fas fa-camera"></i>
+                            </label>
+                            <input type="file" id="profileUpload" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                    <div class="header-content">
+                        <h1 id="cvName">Your Name</h1>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> <span id="cvEmail">email@example.com</span></p>
+                            <p><i class="fas fa-phone"></i> <span id="cvPhone">+1234567890</span></p>
+                            <p><i class="fas fa-map-marker-alt"></i> <span id="cvLocation">City, Country</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h2><i class="fas fa-user"></i> Professional Summary</h2>
+                    <p id="cvSummary">Loading summary...</p>
+                </div>
+
+                <div class="cv-section">
+                    <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+                    <div id="cvExperience">Loading experience...</div>
+                </div>
+
+                <div class="cv-section">
+                    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <div id="cvEducation">Loading education...</div>
+                </div>
+
+                <div class="cv-section">
+                    <h2><i class="fas fa-tools"></i> Skills</h2>
+                    <div id="cvSkills" class="skills-grid">Loading skills...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="viewCV.js"></script>
+</body>
+</html> 

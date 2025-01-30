@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #0a0a0a;
+    overflow: hidden;
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+    z-index: -1;
+}
+
+.lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    margin: auto;
+    width: 100vw;
+    z-index: -1;
+    background: linear-gradient(90deg, transparent 0%, #00fff2 50%, transparent 100%);
+    animation: scan 8s linear infinite;
+    opacity: 0.1;
+    transform: skewY(-45deg);
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(-100%) skewY(-45deg);
+    }
+    100% {
+        transform: translateY(100%) skewY(-45deg);
+    }
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 40px;
+}
+
+.login-box {
+    background: rgba(15, 15, 15, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 255, 242, 0.1);
+    border: 1px solid rgba(0, 255, 242, 0.1);
+    min-width: 400px;
+}
+
+h2 {
+    color: #00fff2;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #555;
+    outline: none;
+}
+
+label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #555;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #00fff2;
+    font-size: 12px;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.bar:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #00fff2;
+    transition: 0.4s;
+}
+
+input:focus ~ .bar:before {
+    width: 100%;
+    left: 0;
+}
+
+button {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #00fff2;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    overflow: hidden;
+    transition: 0.2s;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    color: #255784;
+    background: #00fff2;
+    box-shadow: 0 0 10px #00fff2, 0 0 40px #00fff2, 0 0 80px #00fff2;
+    transition-delay: 1s;
+}
+
+button span {
+    position: absolute;
+    display: block;
+}
+
+button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00fff2);
+}
+
+button:hover span:nth-child(1) {
+    left: 100%;
+    transition: 1s;
+}
+
+button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #00fff2);
+}
+
+button:hover span:nth-child(2) {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #00fff2);
+}
+
+button:hover span:nth-child(3) {
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #00fff2);
+}
+
+button:hover span:nth-child(4) {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+.signup-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.signup-link p {
+    color: #555;
+}
+
+.signup-link a {
+    color: #00fff2;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.signup-link a:hover {
+    text-shadow: 0 0 10px #00fff2;
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        min-width: 300px;
+        padding: 20px;
+    }
+} 

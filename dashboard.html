@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DragINN</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/logo.png" alt="DragINN Logo" class="logo">
+        </div>
+        <div class="sidebar-content">
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="default-avatar.png" alt="Profile" id="profile-pic">
+                    <div class="upload-overlay">
+                        <label for="upload-photo">
+                            <i class="fas fa-camera"></i>
+                        </label>
+                        <input type="file" id="upload-photo" hidden>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h3>John Doe</h3>
+                    <p>ID: #DEV2024</p>
+                </div>
+            </div>
+            
+            <!-- Sidebar Buttons -->
+            <div class="sidebar-buttons">
+                <button class="cv-upload">
+                    <i class="fas fa-file-upload"></i>
+                    Update CV
+                </button>
+                <button class="edit-profile">
+                    <i class="fas fa-user-edit"></i>
+                    Edit Profile
+                </button>
+                <button class="settings">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </button>
+                <button class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+
+            <!-- Theme Picker -->
+            <div class="theme-picker">
+                <h4>Theme Colors</h4>
+                <div class="color-slider-container">
+                    <input type="range" min="0" max="360" value="180" class="color-slider" id="hueSlider">
+                    <div class="color-preview"></div>
+                </div>
+                <div class="color-presets">
+                    <div class="preset-label">Presets:</div>
+                    <div class="preset-colors">
+                        <button class="preset-btn" data-color="#00fff2" style="background: #00fff2"></button>
+                        <button class="preset-btn" data-color="#ff0099" style="background: #ff0099"></button>
+                        <button class="preset-btn" data-color="#9900ff" style="background: #9900ff"></button>
+                        <button class="preset-btn" data-color="#00ff95" style="background: #00ff95"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navigation Bar -->
+        <header class="top-nav">
+            <div class="nav-links">
+                <a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
+                <a href="updateCV.html"><i class="fas fa-edit"></i> Update CV</a>
+                <a href="viewCV.html"><i class="fas fa-file-alt"></i> View CV</a>
+                <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                <a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content">
+            <h2>Latest Posts</h2>
+            
+            <!-- Blog Posts -->
+            <div class="posts-grid">
+                <div class="post-card">
+                    <div class="post-image"></div>
+                    <div class="post-content">
+                        <h3>Getting Started with AI Development</h3>
+                        <p>Learn the basics of AI development and machine learning in this comprehensive guide...</p>
+                        <div class="post-meta">
+                            <span><i class="fas fa-user"></i> John Smith</span>
+                            <span><i class="fas fa-clock"></i> 2 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card">
+                    <div class="post-image"></div>
+                    <div class="post-content">
+                        <h3>Web Development Trends 2024</h3>
+                        <p>Explore the latest trends in web development and what's coming next...</p>
+                        <div class="post-meta">
+                            <span><i class="fas fa-user"></i> Jane Doe</span>
+                            <span><i class="fas fa-clock"></i> 5 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card">
+                    <div class="post-image"></div>
+                    <div class="post-content">
+                        <h3>Cybersecurity Best Practices</h3>
+                        <p>Essential security practices every developer should know...</p>
+                        <div class="post-meta">
+                            <span><i class="fas fa-user"></i> Mike Johnson</span>
+                            <span><i class="fas fa-clock"></i> 1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this before </body> -->
+    <script src="dashboard.js"></script>
+    <script src="themeManager.js"></script>
+</body>
+</html> 

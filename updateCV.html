@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update CV - DragINN</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="cv.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar from dashboard -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/logo.png" alt="DragINN Logo" class="logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
+            <li><a href="updateCV.html" class="active"><i class="fas fa-edit"></i> Update CV</a></li>
+            <li><a href="viewCV.html"><i class="fas fa-file-alt"></i> View CV</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <div class="cv-container">
+            <h1>CV Generator</h1>
+            
+            <div class="cv-form-container">
+                <form id="cvForm" class="cv-form">
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-user"></i> Personal Information</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" id="location" name="location" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Summary -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-star"></i> Professional Summary</h2>
+                        <div class="form-group">
+                            <textarea id="summary" name="summary" rows="4" placeholder="Brief overview of your professional background and career goals..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Work Experience -->
+                    <div class="form-section" id="experienceSection">
+                        <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+                        <div class="experience-entries">
+                            <div class="experience-entry">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label>Company Name</label>
+                                        <input type="text" name="companies[]" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Position</label>
+                                        <input type="text" name="positions[]" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Start Date</label>
+                                        <input type="date" name="startDates[]" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>End Date</label>
+                                        <input type="date" name="endDates[]">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Responsibilities & Achievements</label>
+                                    <textarea name="responsibilities[]" rows="3" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-more-btn" id="addExperience">
+                            <i class="fas fa-plus"></i> Add More Experience
+                        </button>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="form-section" id="educationSection">
+                        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                        <div class="education-entries">
+                            <div class="education-entry">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label>Institution</label>
+                                        <input type="text" name="institutions[]" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Degree</label>
+                                        <input type="text" name="degrees[]" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Graduation Year</label>
+                                        <input type="number" name="gradYears[]" min="1900" max="2099" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>GPA</label>
+                                        <input type="number" name="gpas[]" step="0.01" min="0" max="4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-more-btn" id="addEducation">
+                            <i class="fas fa-plus"></i> Add More Education
+                        </button>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-tools"></i> Skills</h2>
+                        <div class="form-group">
+                            <div class="skills-input-container">
+                                <input type="text" id="skillInput" placeholder="Type a skill and press Enter">
+                                <div class="skills-tags" id="skillsTags"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Generate Options -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-magic"></i> Generation Options</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="cvStyle">CV Style</label>
+                                <select id="cvStyle" name="cvStyle">
+                                    <option value="professional">Professional</option>
+                                    <option value="creative">Creative</option>
+                                    <option value="modern">Modern</option>
+                                    <option value="academic">Academic</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tone">Writing Tone</label>
+                                <select id="tone" name="tone">
+                                    <option value="professional">Professional</option>
+                                    <option value="confident">Confident</option>
+                                    <option value="friendly">Friendly</option>
+                                    <option value="formal">Formal</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="generate-btn">
+                            <i class="fas fa-wand-magic-sparkles"></i> Generate CV
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Preview Modal -->
+            <div id="previewModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Generated CV Preview</h2>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="cvPreview"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="downloadPDF" class="download-btn">
+                            <i class="fas fa-download"></i> Download PDF
+                        </button>
+                        <button id="editCV" class="edit-btn">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cvGenerator.js"></script>
+</body>
+</html> 
