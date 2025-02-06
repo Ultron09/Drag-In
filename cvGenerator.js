@@ -181,7 +181,7 @@ class CVGenerator {
             localStorage.setItem('cvData', JSON.stringify(enhancedCV));
 
             // Redirect to view page
-            window.location.href = 'viewCV.html';
+            window.location.href = '/viewCV.html';
         } catch (error) {
             console.error('Error generating CV:', error);
             this.showError(`Failed to generate CV: ${error.message}`);
@@ -357,4 +357,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (form) {
         form.addEventListener('submit', (e) => generator.handleFormSubmit(e));
     }
-}); 
+});
