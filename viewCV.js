@@ -11,6 +11,7 @@ class CVViewer {
     setupEventListeners() {
         document.getElementById('downloadCV')?.addEventListener('click', () => this.downloadPDF());
         document.getElementById('profileUpload')?.addEventListener('change', (e) => this.handleProfileUpload(e));
+        document.getElementById('H-button');
     }
 
     async loadCV() {

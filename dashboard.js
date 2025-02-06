@@ -1,6 +1,6 @@
 // API Keys and endpoints (you'll need to register for these services)
 const LINKEDIN_ACCESS_TOKEN = 'YOUR_LINKEDIN_ACCESS_TOKEN';
-const NEWS_API_KEY = 'YOUR_NEWS_API_KEY';
+const NEWS_API_KEY = 'd3b160d9d11d4997afb26b91b943471a';
 
 class FeedManager {
     constructor() {
