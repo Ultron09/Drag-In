@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - DragINN</title>
-    <link rel="stylesheet" href="css\dashboard.css">
+    <title>View CV - DragINN</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/cv.css">
+    <link rel="stylesheet" href="css/viewCV.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
     <!-- Sidebar -->
@@ -33,6 +36,10 @@
             
             <!-- Sidebar Buttons -->
             <div class="sidebar-buttons">
+                <button id="H-button">
+                    <i class="fas fa-home"></i>
+                    Take Me Home
+                </button>
                 <button class="cv-upload">
                     <i class="fas fa-file-upload"></i>
                     Update CV
@@ -71,71 +78,63 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <div class="main-content">
-        <!-- Top Navigation Bar -->
-        <header class="top-nav">
-            <div class="nav-links">
-                <a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a>
-                <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
-                <a href="updateCV.html"><i class="fas fa-edit"></i> Update CV</a>
-                <a href="viewCV.html"><i class="fas fa-file-alt"></i> View CV</a>
-                <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
-                <a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <div class="cv-viewer">
+            <div class="cv-actions">
+                <button id="downloadCV" class="action-btn">
+                    <i class="fas fa-download"></i> Download PDF
+                </button>
+                <button id="editCV" class="action-btn" onclick="window.location.href='updateCV.html'">
+                    <i class="fas fa-edit"></i> Edit CV
+                </button>
             </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-                <i class="fas fa-search"></i>
-            </div>
-        </header>
 
-        <!-- Content Area -->
-        <div class="content">
-            <h2>Latest Posts</h2>
-            
-            <!-- Blog Posts -->
-            <div class="posts-grid">
-                <div class="post-card">
-                    <div class="post-image"></div>
-                    <div class="post-content">
-                        <h3>Getting Started with AI Development</h3>
-                        <p>Learn the basics of AI development and machine learning in this comprehensive guide...</p>
-                        <div class="post-meta">
-                            <span><i class="fas fa-user"></i> John Smith</span>
-                            <span><i class="fas fa-clock"></i> 2 hours ago</span>
+            <div class="cv-document" id="cvDocument">
+                <div class="cv-header">
+                    <div class="profile-section">
+                        <img id="profileImage" src="assets/default-profile.png" alt="Profile Picture" class="profile-picture">
+                        <div class="profile-upload">
+                            <label for="profileUpload" class="upload-btn">
+                                <i class="fas fa-camera"></i>
+                            </label>
+                            <input type="file" id="profileUpload" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                    <div class="header-content">
+                        <h1 id="cvName">Your Name</h1>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> <span id="cvEmail">email@example.com</span></p>
+                            <p><i class="fas fa-phone"></i> <span id="cvPhone">+1234567890</span></p>
+                            <p><i class="fas fa-map-marker-alt"></i> <span id="cvLocation">City, Country</span></p>
                         </div>
                     </div>
                 </div>
 
-                <div class="post-card">
-                    <div class="post-image"></div>
-                    <div class="post-content">
-                        <h3>Web Development Trends 2024</h3>
-                        <p>Explore the latest trends in web development and what's coming next...</p>
-                        <div class="post-meta">
-                            <span><i class="fas fa-user"></i> Jane Doe</span>
-                            <span><i class="fas fa-clock"></i> 5 hours ago</span>
-                        </div>
-                    </div>
+                <div class="cv-section">
+                    <h2><i class="fas fa-user"></i> Professional Summary</h2>
+                    <p id="cvSummary">Loading summary...</p>
                 </div>
 
-                <div class="post-card">
-                    <div class="post-image"></div>
-                    <div class="post-content">
-                        <h3>Cybersecurity Best Practices</h3>
-                        <p>Essential security practices every developer should know...</p>
-                        <div class="post-meta">
-                            <span><i class="fas fa-user"></i> Mike Johnson</span>
-                            <span><i class="fas fa-clock"></i> 1 day ago</span>
-                        </div>
-                    </div>
+                <div class="cv-section">
+                    <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+                    <div id="cvExperience">Loading experience...</div>
+                </div>
+
+                <div class="cv-section">
+                    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <div id="cvEducation">Loading education...</div>
+                </div>
+
+                <div class="cv-section">
+                    <h2><i class="fas fa-tools"></i> Skills</h2>
+                    <div id="cvSkills" class="skills-grid">Loading skills...</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Add this before </body> -->
-    <script src="js/dashboard.js"></script>
+    <script src="js/viewCV.js"></script>
     <script src="js/themeManager.js"></script>
+
 </body>
 </html> 
