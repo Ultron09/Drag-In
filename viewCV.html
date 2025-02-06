@@ -4,16 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View CV - DragINN</title>
-    <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="cv.css">
-    <link rel="stylesheet" href="viewCV.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/cv.css">
+    <link rel="stylesheet" href="css/viewCV.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
     <!-- Sidebar -->
     <nav class="sidebar">
-        <!-- ... same sidebar as dashboard.html ... -->
+        <div class="sidebar-header">
+            <img src="/assets/logo.png" alt="DragINN Logo" class="logo" width="80px" height="30px">
+        </div>
+        <div class="sidebar-content">
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="/assets/default-avatar.png" alt="Profile" id="profile-pic">
+                    <div class="upload-overlay">
+                        <label for="upload-photo">
+                            <i class="fas fa-camera"></i>
+                        </label>
+                        <input type="file" id="upload-photo" hidden>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h3>John Doe</h3>
+                    <p>ID: #DEV2024</p>
+                </div>
+            </div>
+            
+            <!-- Sidebar Buttons -->
+            <div class="sidebar-buttons">
+                <button id="H-button">
+                    <i class="fas fa-home"></i>
+                    Take Me Home
+                </button>
+                <button class="cv-upload">
+                    <i class="fas fa-file-upload"></i>
+                    Update CV
+                </button>
+                <button class="edit-profile">
+                    <i class="fas fa-user-edit"></i>
+                    Edit Profile
+                </button>
+                <button class="settings">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </button>
+                <button class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+
+            <!-- Theme Picker -->
+            <div class="theme-picker">
+                <h4>Theme Colors</h4>
+                <div class="color-slider-container">
+                    <input type="range" min="0" max="360" value="180" class="color-slider" id="hueSlider">
+                    <div class="color-preview"></div>
+                </div>
+                <div class="color-presets">
+                    <div class="preset-label">Presets:</div>
+                    <div class="preset-colors">
+                        <button class="preset-btn" data-color="#00fff2" style="background: #00fff2"></button>
+                        <button class="preset-btn" data-color="#ff0099" style="background: #ff0099"></button>
+                        <button class="preset-btn" data-color="#9900ff" style="background: #9900ff"></button>
+                        <button class="preset-btn" data-color="#00ff95" style="background: #00ff95"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <div class="main-content">
@@ -71,6 +133,8 @@
         </div>
     </div>
 
-    <script src="viewCV.js"></script>
+    <script src="js/viewCV.js"></script>
+    <script src="js/themeManager.js"></script>
+
 </body>
 </html> 
