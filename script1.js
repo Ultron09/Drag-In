@@ -5,28 +5,29 @@ document.getElementById("signupForm").addEventListener("submit", async function 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
-    const file = document.getElementById("profileFile").files[0];
 
     if (password !== confirmPassword) {
         alert("Passwords do not match!");
         return;
     }
 
-    const formData = new FormData();
-    formData.append("username", username);
-    formData.append("email", email);
-    formData.append("password", password);
-    if (file) formData.append("file", file);
-
     const response = await fetch("/api/signup", {
         method: "POST",
-        body: formData
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password }),
     });
 
     const result = await response.json();
+
     if (result.success) {
-        alert("Signup successful! Redirecting...");
-        window.location.href = "/dashboard.html";
+        document.getElementById("signupBox").innerHTML = `
+            <h2>Signup Successful! ✅</h2>
+            <button id="goToLogin">Go to Login</button>
+        `;
+
+        document.getElementById("goToLogin").addEventListener("click", function () {
+            window.location.href = "/index.html";
+        });
     } else {
         alert(result.message);
     }
