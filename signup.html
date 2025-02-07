@@ -14,47 +14,46 @@
     <div class="login-container">
         <div class="login-box">
             <h2>Sign Up</h2>
-            <form>
-                <div class="input-group">
-                    <input type="text" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Username</label>
-                </div>
-                
-                <div class="input-group">
-                    <input type="email" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Email</label>
-                </div>
-                
-                <div class="input-group">
-                    <input type="password" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Password</label>
-                </div>
-                
-                <div class="input-group">
-                    <input type="password" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Confirm Password</label>
-                </div>
-                
-                <button type="submit">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    SIGN UP
-                </button>
-                
-                <div class="signup-link">
-                    <p>Already have an account? <a href="index.html">Login</a></p>
-                </div>
-            </form>
+            <form id="signupForm">
+    <div class="input-group">
+        <input type="text" id="username" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Username</label>
+    </div>
+    
+    <div class="input-group">
+        <input type="email" id="email" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Email</label>
+    </div>
+    
+    <div class="input-group">
+        <input type="password" id="password" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Password</label>
+    </div>
+    
+    <div class="input-group">
+        <input type="password" id="confirmPassword" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Confirm Password</label>
+    </div>
+
+    <!-- File Upload for Profile Picture or CV -->
+    <div class="input-group">
+        <input type="file" id="profileFile" accept="image/*,.pdf">
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Upload Profile Picture / CV</label>
+    </div>
+    
+    <button type="submit">SIGN UP</button>
+</form>
+
         </div>
     </div>
 </body>
