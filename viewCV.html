@@ -13,8 +13,28 @@
 <body>
     <!-- Sidebar -->
     <nav class="sidebar">
-        <!-- ... same sidebar as dashboard.html ... -->
+        <ul>
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="updateCV.html"><i class="fas fa-edit"></i> Edit CV</a></li>
+            <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
     </nav>
+    <div class="theme-picker">
+        <h4>Theme Colors</h4>
+        <div class="color-slider-container">
+            <input type="range" min="0" max="360" value="180" class="color-slider" id="hueSlider">
+            <div class="color-preview"></div>
+        </div>
+        <div class="color-presets">
+            <div class="preset-label">Presets:</div>
+            <div class="preset-colors">
+                <button class="preset-btn" data-color="#00fff2" style="background: #00fff2"></button>
+                <button class="preset-btn" data-color="#ff0099" style="background: #ff0099"></button>
+                <button class="preset-btn" data-color="#9900ff" style="background: #9900ff"></button>
+                <button class="preset-btn" data-color="#00ff95" style="background: #00ff95"></button>
+            </div>
+        </div>
+    </div>
 
     <div class="main-content">
         <div class="cv-viewer">
@@ -30,7 +50,7 @@
             <div class="cv-document" id="cvDocument">
                 <div class="cv-header">
                     <div class="profile-section">
-                        <img id="profileImage" src="assets/default-profile.png" alt="Profile Picture" class="profile-picture">
+                        <img id="profileImage" src="default-avatar.png" alt="Profile Picture" class="profile-picture">
                         <div class="profile-upload">
                             <label for="profileUpload" class="upload-btn">
                                 <i class="fas fa-camera"></i>
@@ -39,38 +59,40 @@
                         </div>
                     </div>
                     <div class="header-content">
-                        <h1 id="cvName">Your Name</h1>
+                        <h1 id="name">Your Name</h1>
                         <div class="contact-info">
-                            <p><i class="fas fa-envelope"></i> <span id="cvEmail">email@example.com</span></p>
-                            <p><i class="fas fa-phone"></i> <span id="cvPhone">+1234567890</span></p>
-                            <p><i class="fas fa-map-marker-alt"></i> <span id="cvLocation">City, Country</span></p>
+                            <p><i class="fas fa-envelope"></i> <span id="email">email@example.com</span></p>
+                            <p><i class="fas fa-phone"></i> <span id="phone">+1234567890</span></p>
+                            <p><i class="fas fa-map-marker-alt"></i> <span id="location">City, Country</span></p>
                         </div>
                     </div>
                 </div>
 
                 <div class="cv-section">
                     <h2><i class="fas fa-user"></i> Professional Summary</h2>
-                    <p id="cvSummary">Loading summary...</p>
+                    <p id="summary"></p>
                 </div>
 
                 <div class="cv-section">
                     <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
-                    <div id="cvExperience">Loading experience...</div>
+                    <div id="work-experience"></div>
                 </div>
 
                 <div class="cv-section">
                     <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-                    <div id="cvEducation">Loading education...</div>
+                    <div id="education"></div>
                 </div>
 
                 <div class="cv-section">
                     <h2><i class="fas fa-tools"></i> Skills</h2>
-                    <div id="cvSkills" class="skills-grid">Loading skills...</div>
+                    <div id="skills" class="skills-grid"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="viewCV.js"></script>
+    <script src="themeManager.js"></script>
+
 </body>
-</html> 
+</html>

@@ -1,6 +1,25 @@
 // API Keys and endpoints (you'll need to register for these services)
 const LINKEDIN_ACCESS_TOKEN = 'YOUR_LINKEDIN_ACCESS_TOKEN';
-const NEWS_API_KEY = 'YOUR_NEWS_API_KEY';
+const NEWS_API_KEY = 'd3b160d9d11d4997afb26b91b943471a';
+document.addEventListener("DOMContentLoaded", function () {
+    // Retrieve username from localStorage
+    const username = localStorage.getItem("username");
+
+    // If user is not logged in, redirect to login page
+    if (!username) {
+        alert("You are not logged in!");
+        window.location.href = "index.html"; // Redirect to login page
+    } else {
+        // Display username in the profile section
+        document.querySelector(".profile-info h3").textContent = username;
+    }
+
+    // Logout Functionality
+    document.querySelector(".logout").addEventListener("click", function () {
+        localStorage.removeItem("username"); // Remove stored username
+        window.location.href = "index.html"; // Redirect to login page
+    });
+});
 
 class FeedManager {
     constructor() {
@@ -51,7 +70,7 @@ class FeedManager {
 
     async getEconomicTimesPosts() {
         try {
-            const response = await fetch(`https://newsapi.org/v2/everything?domains=economictimes.indiatimes.com&apiKey=${NEWS_API_KEY}&pageSize=5`);
+            const response = await fetch(`https://newsapi.org/v2/everything?q=tesla&from=2025-02-13&sortBy=publishedAt&apiKey=d3b160d9d11d4997afb26b91b943471a`);
             const data = await response.json();
             this.processNewsPosts(data.articles, 'Economic Times');
         } catch (error) {
@@ -61,7 +80,7 @@ class FeedManager {
 
     async getIndustryInsights() {
         try {
-            const response = await fetch(`https://newsapi.org/v2/top-headlines?category=technology&apiKey=${NEWS_API_KEY}&pageSize=5`);
+            const response = await fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=d3b160d9d11d4997afb26b91b943471a`);
             const data = await response.json();
             this.processNewsPosts(data.articles, 'Industry Insights');
         } catch (error) {

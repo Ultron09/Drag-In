@@ -161,7 +161,7 @@ class CVGenerator {
             const formData = this.gatherFormData();
             console.log('Submitting CV data:', formData);
 
-            const response = await fetch('http://localhost:3000/api/enhance-cv', {
+            const response = await fetch('http://localhost:3000/enhance_cv', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -252,7 +252,6 @@ class CVGenerator {
     }
 
     generatePreviewHTML(cvData) {
-        // This is a basic preview - you can enhance this based on the selected style
         return `
             <div class="cv-preview ${cvData.style}">
                 <header>

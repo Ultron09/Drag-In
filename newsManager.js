@@ -1,8 +1,8 @@
 class NewsManager {
     constructor() {
-        this.apiBaseUrl = 'http://localhost:3000/api';
-        this.newsApiKey = 'YOUR_NEWS_API_KEY';
-        this.finnhubApiKey = 'YOUR_FINNHUB_API_KEY';
+        this.apiBaseUrl = 'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=';
+        this.newsApiKey = 'd3b160d9d11d4997afb26b91b943471a';
+        this.finnhubApiKey = 'cudibcpr01qigebqv2h0cudibcpr01qigebqv2hg';
         this.currentCategory = 'business';
         this.updateInterval = 60000; // 1 minute
         this.stockSymbols = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'META', 'TSLA'];
@@ -82,7 +82,7 @@ class NewsManager {
     async fetchNews() {
         try {
             console.log(`Fetching ${this.currentCategory} news...`);
-            const response = await fetch(`${this.apiBaseUrl}/news/${this.currentCategory}`);
+            const response = await fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=d3b160d9d11d4997afb26b91b943471a`);
             
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
