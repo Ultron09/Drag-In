@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "backend/app.py"
+    }
+  ],
+  "env": {
+    "MONGO_URI": "mongodb+srv://Ultron:Dragin1234@cluster0.biqxd.mongodb.net/draginn?retryWrites=true&w=majority&appName=Cluster0"
+  }
+}
